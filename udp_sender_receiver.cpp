@@ -26,13 +26,13 @@
 #define UDP_PC_MBED_UNITY_H
 
 
-// ‘—M—p
+// ï¿½ï¿½ï¿½Mï¿½p
 //------------------------------------------------------------
 #define SERVER_IP "127.0.0.1"  // UnityIP address
 #define SERVER_PORT 1234  // Unity PORT no
 #define ARRAY_SIZE 11  //
 #define INTERVAL_MS 17  // send msec
-// óM—p
+// ï¿½ï¿½Mï¿½p
 //------------------------------------------------------------
 #define PORT 1234  //
 const double Pi = 3.1415926535897932384626433832795028841971;
@@ -58,21 +58,21 @@ double T = 1 / (2 * Pi * fc);
  * @return Received size
  */
 double GetTime() {
-    /* ‰‰ñ‹N“®‚Ì‚İ‰ŠúŠÔ‚ğ‹L˜^‚·‚é */
-    static bool first_flag = true;  //‰‰ñ‹N“®ƒtƒ‰ƒO
+    /* ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½ï¿½ï¿½Ì‚İï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô‚ï¿½ï¿½Lï¿½^ï¿½ï¿½ï¿½ï¿½ */
+    static bool first_flag = true;  //ï¿½ï¿½ï¿½ï¿½Nï¿½ï¿½ï¿½tï¿½ï¿½ï¿½O
     static std::chrono::system_clock::time_point start, now;
     if (first_flag) {
         start = std::chrono::system_clock::now();
         first_flag = false;
     }
-    now = std::chrono::system_clock::now(); //Œ»İ‚ÌŠÔ‚ğæ“¾
+    now = std::chrono::system_clock::now(); //ï¿½ï¿½ï¿½İ‚Ìï¿½ï¿½Ô‚ï¿½ï¿½æ“¾
 
     return static_cast<double>(std::chrono::duration_cast<std::chrono::nanoseconds>(now - start).count() * 0.001 *
-                               0.001 * 0.001);  //Œo‰ßŠÔ‚ğŒvZ
+                               0.001 * 0.001);  //ï¿½oï¿½ßï¿½ï¿½Ô‚ï¿½ï¿½vï¿½Z
 }
 
 void receive_func() {
-    UDPClient udp_client("192.168.2.60", 15968);
+    UDPClient udp_client("", 15968);
     toPC topc;
     WSADATA wsaData;
     if (WSAStartup(MAKEWORD(2, 2), &wsaData) != 0) {
@@ -458,7 +458,7 @@ int main() {
         x2 += 0.2;
         x3 += 0.3;
         x4 += 0.4;
-        sent_size = udp_server.send("192.168.2.64", 12345, &to_mbed, sizeof(toMbed));
+        sent_size = udp_server.send("", 12345, &to_mbed, sizeof(toMbed));
 //    std::cout << "Sent size: " << sent_size << std::endl;
         SLEEP(10); // wait for 10ms
     }
