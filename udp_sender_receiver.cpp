@@ -1,6 +1,4 @@
 
-// Created by Kota Kobayashi on 2022/10/05.
-//
 #include <iostream>
 #include <future>
 #include <thread>
