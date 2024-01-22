@@ -26,7 +26,7 @@
 
 // ���M�p
 //------------------------------------------------------------
-#define SERVER_IP "127.0.0.1"  // UnityIP address
+#define SERVER_IP ""  // UnityIP address
 #define SERVER_PORT 1234  // Unity PORT no
 #define ARRAY_SIZE 11  //
 #define INTERVAL_MS 17  // send msec
@@ -434,7 +434,7 @@ void receive_func() {
 // main function
 int main() {
     GetTime();
-    UDPServer udp_server("192.168.2.64", 12345);
+    UDPServer udp_server("", 12345);
     toMbed to_mbed;
     int sent_size;
 
